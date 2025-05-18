@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shree Charbhuja Jewellers, Vadodara</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -12,7 +13,7 @@
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -22,14 +23,36 @@
       color: #fff;
     }
 
-    section {
-      height: 120vh;
-      padding: 40px 20px;
-      background: rgba(0, 0, 0, 0.6);
+    nav {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 1.8em;
+      margin: 0;
+      color: #ffcc00;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1em;
     }
 
     header {
@@ -40,16 +63,28 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      padding-top: 100px;
     }
 
     header h1 {
-      font-size: 3em;
+      font-size: 3.0em;
       margin: 0;
     }
 
     header p {
-      font-size: 1.7em;
+      font-size: 2.0em;
       color: #ccc;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 80px 40px;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
 
     h2 {
@@ -61,26 +96,27 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 20px;
       width: 100%;
       max-width: 1200px;
     }
 
     .product-card {
       background: rgba(255, 255, 255, 0.15);
-      padding: 20px;
-      border-radius: 8px;
-      width: 180px;
-      text-align: center;
-      backdrop-filter: blur(5px);
+      padding: 25px;
+      border-radius: 12px;
+      width: 160px;
+      font-size: 1.0em;
+      font-weight: 500;
+      backdrop-filter: blur(6px);
     }
 
     #calculator input, #calculator button {
-      padding: 10px;
-      margin: 5px;
-      width: 200px;
+      padding: 12px;
+      margin: 6px;
+      width: 220px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1em;
     }
 
@@ -100,7 +136,7 @@
       max-width: 1000px;
       height: 500px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
     }
 
     form {
@@ -108,28 +144,41 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 230px;
+      max-width: 240px;
     }
 
     form input, form textarea {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin: 10px 0;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 1em;
     }
 
     form button {
-      padding: 12px 30px;
+      padding: 14px 30px;
       background: #ffcc00;
       color: #000;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 1em;
     }
   </style>
+</head>
+<body>
+  <nav>
+    <h1>Shree Charbhuja Jewellers, Vadodara</h1>
+    <ul>
+      <li><a href="#intro">About</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#calculator">Calculator</a></li>
+      <li><a href="#location">Find Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+ </style>
 </head>
 <body>
 
@@ -139,21 +188,23 @@
     <p>(Since 1985)</p>
   </header>
 
-  <section id="intro">
-    <h2>The Timeless Shine of Trust – The Story of Shree Charbhuja Jewellers, Vadodara</h2>
-    <p style="max-width: 1100px; text-align: center;">In the heart of Vadodara one and only store, where culture meets craftsmanship, a humble dream took root in the year 1985—a dream born not of ambition, but of devotion to quality, honesty, and service. That dream was named Shree Charbhuja Jewellers.
+   <section id="intro">
+    <h2>The Timeless Shine of Trust</h2>
+    <p style="max-width: 1100px; text-align: center; line-height: 1.4;">
+      In the heart of Vadodara one and only store, where culture meets craftsmanship, a humble dream took root in the year 1985—a dream born not of ambition, but of devotion to quality, honesty, and service. That dream was named Shree Charbhuja Jewellers.<br /><br />
 
-What began as a small silver business in a modest corner of the city has grown into a symbol of trust and excellence, cherished by generations of loyal customers. At the core of this journey stands Rajubhai, the beloved founder and guiding soul behind the brand. Known across Vadodara not just for his exceptional knowledge of silver jewellery, but for his kindness, ethics, and customer-first approach, Rajubhai has created more than a business—he has built a legacy.
+      What began as a small silver business in a modest corner of the city has grown into a symbol of trust and excellence, cherished by generations of loyal customers. At the core of this journey stands Rajubhai, the beloved founder and guiding soul behind the brand. Known across Vadodara not just for his exceptional knowledge of silver jewellery, but for his kindness, ethics, and customer-first approach, Rajubhai has created more than a business—he has built a legacy.<br /><br />
 
-With a simple motto—“To earn trust”—Shree Charbhuja Jewellers has always placed people above price tags. Every ornament, every piece of silver that leaves the store, reflects the promise of purity, affordability, and transparency. We believe jewellery is not just an accessory; it's a feeling, a memory, a blessing, and we treat it with the respect it deserves.
+      With a simple motto—“To earn trust”—Shree Charbhuja Jewellers has always placed people above price tags. Every ornament, every piece of silver that leaves the store, reflects the promise of purity, affordability, and transparency. We believe jewellery is not just an accessory; it's a feeling, a memory, a blessing, and we treat it with the respect it deserves.<br /><br />
 
-Over the years, our store has grown, but our values remain the same. We continue to serve the finest silver jewellery at the most affordable prices, ensuring that every customer, no matter their budget, leaves with a smile—and more importantly, with faith in us.
+      Over the years, our store has grown, but our values remain the same. We continue to serve the finest silver jewellery at the most affordable prices, ensuring that every customer, no matter their budget, leaves with a smile—and more importantly, with faith in us.<br /><br />
 
-Today, Shree Charbhuja Jewellers is not just a name. It's a tradition of trust. A celebration of relationships built over decades. A reminder that when a business is built on ethics, love, and customer care, it doesn't just thrive—it shines forever.
+      Today, Shree Charbhuja Jewellers is not just a name. It's a tradition of trust. A celebration of relationships built over decades. A reminder that when a business is built on ethics, love, and customer care, it doesn't just thrive—it shines forever.<br /><br />
 
-Come, be a part of our story. Let us adorn your special moments with the grace and purity of silver, just like we have been doing since 1985.
+      Come, be a part of our story. Let us adorn your special moments with the grace and purity of silver, just like we have been doing since 1985.<br /><br />
 
-Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..</p>
+      Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..
+    </p>
   </section>
 
   <section id="products">
@@ -191,9 +242,9 @@ Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..</p>
     
     .date {
       position: absolute;
-      top: 20px;
+      top: 130px;
       right: 30px;
-      font-size: 1.5em;
+      font-size: 1.2em;
       color: #CCC;
     }
 
@@ -247,7 +298,7 @@ Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..</p>
 </head>
 <body>
     <div class="date" id="currentDate"></div>
-    <h1>Silver Price Calculator</h1>
+    <h2>Silver Price Calculator</h2>
 
   <label for="productType">Select Product Type:</label>
   <select id="productType">
@@ -268,17 +319,17 @@ Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..</p>
 
 <script>
   const pricesPerGram = {
-    gold: 99,
-    silver: 350,
-    platinum: 109,
-    diamond: 108,
-    copper: 108,
-    bronze: 107
+    gold: 110,
+    silver: 390,
+    platinum: 113,
+    diamond: 112,
+    copper: 112,
+    bronze: 111
   };
 
   const dateElement = document.getElementById("currentDate");
   const today = new Date();
-  dateElement.innerText = `Today's Date: ${today.toLocaleDateString()}`;
+  dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
 
   const productType = document.getElementById("productType");
   const weightSlider = document.getElementById("weightSlider");
@@ -315,24 +366,14 @@ Shree Charbhuja Jewellers, Vadodara – Where Silver Glows With Trust..</p>
    </iframe>
   </section>
 
-  <section id="contact">
-     <h1>Contact Us</h1>
-  <form target="_blank" action="https://formsubmit.co/parth.charbhuja25@gmail.com" method="POST">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col">
-          <input type="text" name="name" class="form-control" placeholder="Full Name" required>
-        </div>
-        <div class="col">
-          <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <textarea placeholder="Your Message" class="form-control" name="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-lg btn-dark btn-block">Submit Form</button>
-   </form>
+ <section id="contact">
+    <h2>Contact Us</h2>
+    <form target="_blank" action="https://formsubmit.co/parth.charbhuja25@gmail.com" method="POST">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Submit Form</button>
+    </form>
   </section>
 
 </body>
