@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shree Charbhuja Jewellers, Vadodara</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
@@ -29,66 +29,71 @@
       top: 0;
       left: 0;
       background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px 40px;
+      padding: 15px 20px;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
     }
 
     nav h1 {
-      font-size: 1.8em;
+      font-size: 1.4em;
       margin: 0;
       color: #ffcc00;
+      flex: 1 1 100%;
+      text-align: center;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 10px 0 0;
+      padding: 0;
+      width: 100%;
     }
 
     nav ul li a {
       text-decoration: none;
       color: #fff;
       font-weight: 500;
-      font-size: 1em;
+      font-size: 0.9em;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
     }
 
     header {
-      height: 100vh;
+      min-height: 100vh;
       background: rgba(0, 0, 0, 0.6);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 100px;
+      padding: 100px 20px 20px;
     }
 
     header h1 {
-      font-size: 3.0em;
-      margin: 0;
+      font-size: 2em;
     }
 
     header p {
-      font-size: 2.0em;
+      font-size: 1.2em;
       color: #ccc;
     }
 
     section {
-      min-height: 100vh;
-      padding: 80px 40px;
+      padding: 60px 20px;
       background: rgba(0, 0, 0, 0.6);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       text-align: center;
     }
 
     h2 {
-      font-size: 2.2em;
+      font-size: 1.8em;
       margin-bottom: 20px;
     }
 
@@ -96,45 +101,81 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      width: 100%;
-      max-width: 1200px;
+      gap: 15px;
     }
 
     .product-card {
       background: rgba(255, 255, 255, 0.15);
-      padding: 25px;
-      border-radius: 12px;
-      width: 160px;
-      font-size: 1.0em;
+      padding: 15px;
+      border-radius: 10px;
+      width: 45%;
+      max-width: 160px;
+      font-size: 0.95em;
       font-weight: 500;
       backdrop-filter: blur(6px);
+      color: #fff;
     }
 
-    #calculator input, #calculator button {
+    #calculator {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .date {
+      font-size: 1em;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      font-size: 1em;
+      text-align: left;
+    }
+
+    select, input[type="range"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      width: 20px;
+      height: 20px;
+    }
+
+    #weightValue {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    button {
+      width: 100%;
       padding: 12px;
-      margin: 6px;
-      width: 220px;
+      font-size: 1.2em;
+      background-color: #4caf50;
+      color: white;
       border: none;
       border-radius: 6px;
-      font-size: 1em;
-    }
-
-    #calculator input {
-      background: #eee;
-      color: #000;
-    }
-
-    #calculator button {
-      background-color: #ffcc00;
-      color: #000;
       cursor: pointer;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #2e7d32;
     }
 
     iframe {
       width: 100%;
-      max-width: 1000px;
-      height: 500px;
+      height: 300px;
       border: none;
       border-radius: 12px;
     }
@@ -142,33 +183,31 @@
     form {
       display: flex;
       flex-direction: column;
-      align-items: center;
       width: 100%;
-      max-width: 240px;
+      max-width: 320px;
+      margin: auto;
     }
 
     form input, form textarea {
-      width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border: none;
+      padding: 12px;
+      margin: 8px 0;
       border-radius: 6px;
       font-size: 1em;
+      border: none;
     }
 
     form button {
-      padding: 14px 30px;
+      padding: 12px;
       background: #ffcc00;
       color: #000;
       border: none;
       border-radius: 6px;
-      cursor: pointer;
-      font-size: 1em;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <nav>
+   <nav>
     <h1>Shree Charbhuja Jewellers, Vadodara</h1>
     <ul>
       <li><a href="#intro">About</a></li>
@@ -178,9 +217,6 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
- </style>
-</head>
-<body>
 
   <header>
     <h1>Shree Charbhuja Jewellers, Vadodara</h1>
@@ -188,9 +224,9 @@
     <p>(Since 1985)</p>
   </header>
 
-   <section id="intro">
+  <section id="intro">
     <h2>The Timeless Shine of Trust</h2>
-    <p style="max-width: 1100px; text-align: center; line-height: 1.4;">
+    <p style="max-width: 1100px; text-align: center; line-height: 1.6;">
       In the heart of Vadodara one and only store, where culture meets craftsmanship, a humble dream took root in the year 1985—a dream born not of ambition, but of devotion to quality, honesty, and service. That dream was named Shree Charbhuja Jewellers.<br /><br />
 
       What began as a small silver business in a modest corner of the city has grown into a symbol of trust and excellence, cherished by generations of loyal customers. At the core of this journey stands Rajubhai, the beloved founder and guiding soul behind the brand. Known across Vadodara not just for his exceptional knowledge of silver jewellery, but for his kindness, ethics, and customer-first approach, Rajubhai has created more than a business—he has built a legacy.<br /><br />
@@ -222,7 +258,7 @@
       <div class="product-card">Kandoras-Half/Full</div>
       <div class="product-card">Chains</div>
       <div class="product-card">Bracelets</div>
-      <div class="product-card">Raw Materia</div>
+      <div class="product-card">Raw Material</div>
       <div class="product-card">Natural Gems</div>
       <div class="product-card">Rudraksha</div>
       <div class="product-card">Gift Articles</div>
@@ -232,141 +268,37 @@
   </section>
 
   <section id="calculator">
-    <meta charset="UTF-8">
-  <title>Shree Charbhuja Jewellers, Vadodara-Silver Price Calculator</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    
-    .date {
-      position: absolute;
-      top: 130px;
-      right: 30px;
-      font-size: 1.2em;
-      color: #CCC;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      margin: 15px 0 5px;
-      font-weight: bold;
-    }
-
-    select, input[type="range"] {
-      width: 25%;
-      padding: 10px;
-      margin-bottom: 10px;
-      font-size: 1.5em;
-    }
-
-    #weightValue {
-      text-align: center;
-      margin-bottom: 15px;
-      font-size: 1.5em;
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 1.5em;
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .result {
-      margin-top: 20px;
-      font-size: 1.5em;
-      text-align: center;
-      color: #2e7d32;
-    }
-  </style>
-</head>
-<body>
     <div class="date" id="currentDate"></div>
     <h2>Silver Price Calculator</h2>
 
-  <label for="productType">Select Product Type:</label>
-  <select id="productType">
-    <option value="gold">Silver Coin</option>
-    <option value="silver">92.5 Sterling Silver</option>
-    <option value="platinum">Fancy items-Payal, juda, Kandora, etc.</option>
-    <option value="diamond">Puja Saman</option>
-    <option value="copper">Silver Idols</option>
-    <option value="bronze">Silver Vessels</option>
-  </select>
+    <label for="productType">Select Product Type:</label>
+    <select id="productType">
+      <option value="gold">Silver Coin</option>
+      <option value="silver">92.5 Sterling Silver</option>
+      <option value="platinum">Fancy items - Payal, Juda, Kandora, etc.</option>
+      <option value="diamond">Puja Saman</option>
+      <option value="copper">Silver Idols</option>
+      <option value="bronze">Silver Vessels</option>
+    </select>
 
-  <label for="weightSlider">Select Weight (grams):</label>
-  <input type="range" id="weightSlider" min="10" max="500" value="100">
-  <div class="slider-value" id="weightValue">100g</div>
+    <label for="weightSlider">Select Weight (grams):</label>
+    <input type="range" id="weightSlider" min="10" max="500" value="100" />
+    <div id="weightValue">100g</div>
 
-  <div class="result" id="priceOutput">Estimated Price: ₹0.00</div>
-</div>
-
-<script>
-  const pricesPerGram = {
-    gold: 110,
-    silver: 390,
-    platinum: 113,
-    diamond: 112,
-    copper: 112,
-    bronze: 111
-  };
-
-  const dateElement = document.getElementById("currentDate");
-  const today = new Date();
-  dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
-
-  const productType = document.getElementById("productType");
-  const weightSlider = document.getElementById("weightSlider");
-  const weightValue = document.getElementById("weightValue");
-  const priceOutput = document.getElementById("priceOutput");
-
-  function updatePrice() {
-    const weight = parseInt(weightSlider.value);
-    const type = productType.value;
-    const pricePerGram = pricesPerGram[type];
-    const totalPrice = weight * pricePerGram;
-
-    weightValue.innerText = `${weight}g`;
-    priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
-  }
-
-  productType.addEventListener('change', updatePrice);
-  weightSlider.addEventListener('input', updatePrice);
-
-  updatePrice(); // initial call
-</script>
+    <div class="result" id="priceOutput">Estimated Price: ₹0.00</div>
   </section>
 
   <section id="location">
     <h2>Find Us</h2>
-   <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.5591884874864!2d73.206006!3d22.2991243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5f4e5b07511%3A0x8b9eeb9d35326c02!2sShree%20Charbhuja%20Jewellers!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" 
-  width="600" 
-  height="450" 
-  style="border:0;" 
-  allowfullscreen="" 
-  loading="lazy" 
-  referrerpolicy="no-referrer-when-downgrade">
-   </iframe>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.5591884874864!2d73.206006!3d22.2991243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc5f4e5b07511%3A0x8b9eeb9d35326c02!2sShree%20Charbhuja%20Jewellers!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
   </section>
 
- <section id="contact">
+  <section id="contact">
     <h2>Contact Us</h2>
     <form target="_blank" action="https://formsubmit.co/parth.charbhuja25@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Full Name" required />
@@ -376,5 +308,39 @@
     </form>
   </section>
 
+  <script>
+    const pricesPerGram = {
+      gold: 110,
+      silver: 390,
+      platinum: 113,
+      diamond: 112,
+      copper: 112,
+      bronze: 111
+    };
+
+    const dateElement = document.getElementById("currentDate");
+    const today = new Date();
+    dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
+
+    const productType = document.getElementById("productType");
+    const weightSlider = document.getElementById("weightSlider");
+    const weightValue = document.getElementById("weightValue");
+    const priceOutput = document.getElementById("priceOutput");
+
+    function updatePrice() {
+      const weight = parseInt(weightSlider.value);
+      const type = productType.value;
+      const pricePerGram = pricesPerGram[type];
+      const totalPrice = weight * pricePerGram;
+
+      weightValue.innerText = `${weight}g`;
+      priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
+    }
+
+    productType.addEventListener('change', updatePrice);
+    weightSlider.addEventListener('input', updatePrice);
+
+    updatePrice(); // initial call
+  </script>
 </body>
 </html>
