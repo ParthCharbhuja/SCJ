@@ -40,7 +40,7 @@
     }
 
     nav {
-      position: fixed;
+      position: relative;
       top: 0;
       left: 0;
       width: 100%;
@@ -82,7 +82,7 @@
       color: var(--text-color);
       font-weight: 500;
       font-size: 0.8em;
-      padding: 5px 11px;
+      padding: 5px 10px;
       border-radius: 4px;
       transition: background 0.3s;
       background: rgba(255, 255, 255, 0.1);
@@ -96,7 +96,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 9px;
     }
 
     .switch {
@@ -268,15 +268,47 @@
       margin: auto;
     }
 
-    @media (max-width: 768px) {
-      nav h1 {
-        font-size: 1.2em;
-      }
+   .menu-toggle {
+  display: none;
+}
 
-      nav ul {
-        flex-direction: column;
-        gap: 6px;
-      }
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    color: var(--accent-color);
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .nav-center {
+    width: 100%;
+    display: none;
+    flex-basis: 100%;
+  }
+
+  .nav-center.show {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    gap: 10px;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav ul li a {
+    display: block;
+    width: 100%;
+  }
 
       header h1 {
         font-size: 1.4em;
@@ -312,7 +344,10 @@
   <div class="nav-left">
     <h1>Shree Charbhuja Jewellers, Vadodara</h1>
   </div>
-  <div class="nav-center">
+
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+  <div class="nav-center" id="navMenu">
     <ul>
       <li><a href="#intro">About</a></li>
       <li><a href="#products">Products</a></li>
@@ -321,6 +356,7 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
+
   <div class="nav-right">
     <label class="switch">
       <input type="checkbox" id="themeToggle" />
