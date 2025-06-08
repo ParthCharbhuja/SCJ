@@ -54,7 +54,7 @@
     }
 
     nav h1 {
-      font-size: 1.4em;
+      font-size: 1.1em;
       color: var(--accent-color);
       margin: 0;
       flex: 1;
@@ -62,7 +62,7 @@
 
     .menu-toggle {
       display: none;
-      font-size: 1.8em;
+      font-size: 1.0em;
       background: none;
       border: none;
       color: var(--accent-color);
@@ -72,7 +72,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       margin: 0;
       padding: 0;
     }
@@ -81,9 +81,9 @@
       text-decoration: none;
       color: var(--text-color);
       font-weight: 500;
-      font-size: 0.9em;
-      padding: 6px 12px;
-      border-radius: 5px;
+      font-size: 0.8em;
+      padding: 5px 11px;
+      border-radius: 4px;
       transition: background 0.3s;
       background: rgba(255, 255, 255, 0.1);
     }
@@ -96,7 +96,7 @@
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 15px;
+      gap: 12px;
     }
 
     .switch {
@@ -112,7 +112,7 @@
       height: 0;
     }
 
-    .slider {
+   .slider {
       position: absolute;
       cursor: pointer;
       background-color: #ccc;
@@ -144,34 +144,138 @@
       transform: translateX(24px);
     }
 
-    @media (max-width: 768px) {
-      nav {
-        flex-wrap: wrap;
-      }
+    header {
+      min-height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 20px 40px;
+      text-align: center;
+    }
 
-      .menu-toggle {
-        display: block;
+    header h1 {
+      font-size: 2em;
+      color: var(--accent-color);
+    }
+
+    header p {
+      font-size: 1.1em;
+      color: #ccc;
+      margin: 4px 0;
+    }
+
+    section {
+      padding: 60px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      text-align: center;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      margin: 20px 10px;
+      border-radius: 12px;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1em;
+      font-weight: 500;
+      backdrop-filter: blur(6px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(255,255,255,0.1);
+    }
+
+    #calculator {
+      width: 100%;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    select, input[type="range"], textarea, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: none;
+      background: rgba(255,255,255,0.1);
+      color: var(--text-color);
+    }
+
+    #weightValue {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    button {
+      padding: 12px;
+      font-size: 1.1em;
+      background-color: var(--accent-color);
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ffdb4d;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #2e7d32;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 360px;
+      margin: auto;
+    }
+
+    @media (max-width: 768px) {
+      nav h1 {
+        font-size: 1.2em;
       }
 
       nav ul {
         flex-direction: column;
-        width: 100%;
-        display: none;
-        background-color: var(--nav-bg);
-        padding-top: 10px;
-      }
-
-      nav ul.show {
-        display: flex;
-      }
-
-      nav ul li {
-        text-align: center;
-        width: 100%;
-      }
-
-      nav h1 {
-        font-size: 1.2em;
+        gap: 6px;
       }
 
       header h1 {
@@ -201,28 +305,29 @@
         transform: translateX(20px);
       }
     }
-
-    /* Other styling retained (header, section, cards, forms, etc.) */
   </style>
 </head>
 <body>
-  <nav>
-    <h1>Shree Charbhuja Jewellers</h1>
-    <div class="nav-right">
-      <button class="menu-toggle" id="menuBtn">&#9776;</button>
-      <label class="switch">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider"></span>
-      </label>
-    </div>
-    <ul id="navLinks">
+ <nav>
+  <div class="nav-left">
+    <h1>Shree Charbhuja Jewellers, Vadodara</h1>
+  </div>
+  <div class="nav-center">
+    <ul>
       <li><a href="#intro">About</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#calculator">Calculator</a></li>
       <li><a href="#location">Find Us</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+  </div>
+  <div class="nav-right">
+    <label class="switch">
+      <input type="checkbox" id="themeToggle" />
+      <span class="slider"></span>
+    </label>
+  </div>
+</nav>
 
   <header id="intro">
     <h1>Shree Charbhuja Jewellers, Vadodara</h1>
@@ -312,7 +417,6 @@
   </section>
 
   <script>
-    // Price Calculator Logic
     const pricesPerGram = {
       gold: 110,
       silver: 390,
@@ -324,9 +428,7 @@
 
     const dateElement = document.getElementById("currentDate");
     const today = new Date();
-    if (dateElement) {
-      dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
-    }
+    dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
 
     const productType = document.getElementById("productType");
     const weightSlider = document.getElementById("weightSlider");
@@ -342,13 +444,10 @@
       priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
     }
 
-    if (productType && weightSlider) {
-      productType.addEventListener('change', updatePrice);
-      weightSlider.addEventListener('input', updatePrice);
-      updatePrice();
-    }
+    productType.addEventListener('change', updatePrice);
+    weightSlider.addEventListener('input', updatePrice);
+    updatePrice();
 
-    // Theme Toggle
     const toggle = document.getElementById("themeToggle");
     if (localStorage.getItem("theme") === "light") {
       document.body.classList.add("light-mode");
@@ -363,14 +462,10 @@
         document.body.classList.remove("light-mode");
         localStorage.setItem("theme", "dark");
       }
-    });
-
-    // Mobile Menu Toggle
-    const menuBtn = document.getElementById("menuBtn");
-    const navLinks = document.getElementById("navLinks");
-
-    menuBtn.addEventListener("click", () => {
-      navLinks.classList.toggle("show");
+function toggleMenu() {
+  const navMenu = document.getElementById('navMenu');
+  navMenu.classList.toggle('show');
+}
     });
   </script>
 </body>
