@@ -17,29 +17,8 @@
       --transition-speed: 0.3s;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-color);
-      scroll-behavior: smooth;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-    }
-
-    /* Dark Mode */
-    body:not(.light-mode) {
-      background: url('background.png') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-    }
-
-    /* Light Mode */
     body.light-mode {
-      background: url('background.png') no-repeat center center;
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
       --bg-color: #f8f9fa;
       --text-color: #222222;
@@ -68,6 +47,25 @@
       box-shadow: 0 2px 6px var(--shadow-color);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    body:not(.light-mode) {
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+
     nav {
       position: fixed;
       width: 100%;
@@ -84,13 +82,6 @@
       flex: 1;
     }
 
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
     .menu-toggle {
       display: none;
       font-size: 1.5em;
@@ -99,6 +90,37 @@
       color: var(--accent-color);
       cursor: pointer;
       z-index: 1100;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      font-size: 0.9em;
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    nav ul li a:hover {
+      background: var(--accent-color);
+      color: #000;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .nav-right {
@@ -156,30 +178,6 @@
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 8px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-      font-size: 0.9em;
-      padding: 8px 12px;
-      border-radius: 4px;
-      transition: background 0.3s;
-      background: rgba(255, 255, 255, 0.1);
-    }
-
-    nav ul li a:hover {
-      background: var(--accent-color);
-      color: #000;
     }
 
     header {
@@ -339,11 +337,6 @@
         padding: 10px 20px;
       }
 
-      body:not(.light-mode) {
-        background-attachment: scroll;
-        background-position: center top;
-      }
-
       header h1 {
         font-size: 1.4em;
       }
@@ -482,6 +475,8 @@
       <button type="submit">Submit Form</button>
     </form>
   </section>
+
+
   <script>
     function toggleMenu() {
       const navMenu = document.getElementById('navMenu');
@@ -503,6 +498,41 @@
         localStorage.setItem("theme", "dark");
       }
     });
+
+    const pricesPerGram = {
+      gold: 110,
+      silver: 390,
+      platinum: 113,
+      diamond: 112,
+      copper: 112,
+      bronze: 111
+    };
+
+    const productType = document.getElementById("productType");
+    const weightSlider = document.getElementById("weightSlider");
+    const weightValue = document.getElementById("weightValue");
+    const priceOutput = document.getElementById("priceOutput");
+
+    if (productType && weightSlider) {
+      productType.addEventListener('change', updatePrice);
+      weightSlider.addEventListener('input', updatePrice);
+      updatePrice();
+    }
+
+    function updatePrice() {
+      const weight = parseInt(weightSlider.value);
+      const type = productType.value;
+      const pricePerGram = pricesPerGram[type];
+      const totalPrice = weight * pricePerGram;
+      weightValue.innerText = `${weight}g`;
+      priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
+    }
+
+    const dateElement = document.getElementById("currentDate");
+    if (dateElement) {
+      const today = new Date();
+      dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
+    }
   </script>
 </body>
 </html>
