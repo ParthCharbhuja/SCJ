@@ -12,13 +12,39 @@
       --card-bg: rgba(255, 255, 255, 0.1);
       --nav-bg: rgba(0, 0, 0, 0.85);
       --accent-color: #ffcc00;
+      --shadow-color: rgba(0, 0, 0, 0.05);
+      --border-radius: 12px;
+      --transition-speed: 0.3s;
     }
 
     body.light-mode {
-      --bg-color: #fff;
-      --text-color: #000;
-      --card-bg: rgba(0, 0, 0, 0.05);
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      --bg-color: #f8f9fa;
+      --text-color: #222222;
+      --card-bg: #ffffff;
       --nav-bg: rgba(255, 255, 255, 0.95);
+      --accent-color: #c59d5f;
+    }
+
+    body.light-mode nav {
+      box-shadow: 0 2px 6px var(--shadow-color);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    body.light-mode section,
+    body.light-mode header {
+      background: var(--card-bg);
+      color: var(--text-color);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+
+    body.light-mode header p {
+      color: #444;
+    }
+
+    body.light-mode .product-card {
+      box-shadow: 0 2px 6px var(--shadow-color);
     }
 
     * {
@@ -32,6 +58,7 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       scroll-behavior: smooth;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
     }
 
     body:not(.light-mode) {
@@ -41,16 +68,11 @@
 
     nav {
       position: relative;
-      top: 0;
-      left: 0;
       width: 100%;
       background-color: var(--nav-bg);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 15px 20px;
       z-index: 1000;
-      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     nav h1 {
@@ -62,11 +84,12 @@
 
     .menu-toggle {
       display: none;
-      font-size: 1.0em;
+      font-size: 1.5em;
       background: none;
       border: none;
       color: var(--accent-color);
       cursor: pointer;
+      z-index: 1100;
     }
 
     nav ul {
@@ -81,8 +104,8 @@
       text-decoration: none;
       color: var(--text-color);
       font-weight: 500;
-      font-size: 0.8em;
-      padding: 5px 10px;
+      font-size: 0.9em;
+      padding: 8px 12px;
       border-radius: 4px;
       transition: background 0.3s;
       background: rgba(255, 255, 255, 0.1);
@@ -91,6 +114,13 @@
     nav ul li a:hover {
       background: var(--accent-color);
       color: #000;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .nav-right {
@@ -112,7 +142,7 @@
       height: 0;
     }
 
-   .slider {
+    .slider {
       position: absolute;
       cursor: pointer;
       background-color: #ccc;
@@ -142,6 +172,12 @@
 
     input:checked + .slider:before {
       transform: translateX(24px);
+    }
+
+    .nav-center {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     header {
@@ -268,47 +304,38 @@
       margin: auto;
     }
 
-   .menu-toggle {
-  display: none;
-}
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    font-size: 1.5em;
-    background: none;
-    border: none;
-    color: var(--accent-color);
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: 15px;
-  }
+      .nav-center {
+        display: none;
+        flex-basis: 100%;
+        width: 100%;
+      }
 
-  .nav-center {
-    width: 100%;
-    display: none;
-    flex-basis: 100%;
-  }
+      .nav-center.show {
+        display: block;
+      }
 
-  .nav-center.show {
-    display: block;
-  }
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 0;
+        margin: 0;
+        gap: 10px;
+      }
 
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 0;
-    gap: 10px;
-  }
+      nav ul li {
+        width: 100%;
+      }
 
-  nav ul li {
-    width: 100%;
-  }
-
-  nav ul li a {
-    display: block;
-    width: 100%;
-  }
+      nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 10px 20px;
+      }
 
       header h1 {
         font-size: 1.4em;
@@ -340,38 +367,35 @@
   </style>
 </head>
 <body>
- <nav>
-  <div class="nav-left">
-    <h1>Shree Charbhuja Jewellers, Vadodara</h1>
-  </div>
+  <nav>
+    <div class="nav-container">
+      <h1>Shree Charbhuja Jewellers, Vadodara</h1>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <div class="nav-right">
+        <label class="switch">
+          <input type="checkbox" id="themeToggle" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+    <div class="nav-center" id="navMenu">
+      <ul>
+        <li><a href="#intro">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#location">Find Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-  <div class="nav-center" id="navMenu">
-    <ul>
-      <li><a href="#intro">About</a></li>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#calculator">Calculator</a></li>
-      <li><a href="#location">Find Us</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-
-  <div class="nav-right">
-    <label class="switch">
-      <input type="checkbox" id="themeToggle" />
-      <span class="slider"></span>
-    </label>
-  </div>
-</nav>
-
-  <header id="intro">
+ <header id="intro">
     <h1>Shree Charbhuja Jewellers, Vadodara</h1>
     <p>(Rajubhai Ahmedabadwala)</p>
     <p>(Since 1985)</p>
   </header>
 
-  <section>
+   <section>
    <h2>The Timeless Shine of Trust</h2>
    <p style="line-height: 1.2;">
       In the heart of Vadodara one and only store, where culture meets craftsmanship, a humble dream took root in the year 1985—a dream born not of ambition, but of devotion to quality, honesty, and service. That dream was named Shree Charbhuja Jewellers.<br /><br />
@@ -452,37 +476,12 @@
     </form>
   </section>
 
+
   <script>
-    const pricesPerGram = {
-      gold: 110,
-      silver: 390,
-      platinum: 113,
-      diamond: 112,
-      copper: 112,
-      bronze: 111
-    };
-
-    const dateElement = document.getElementById("currentDate");
-    const today = new Date();
-    dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
-
-    const productType = document.getElementById("productType");
-    const weightSlider = document.getElementById("weightSlider");
-    const weightValue = document.getElementById("weightValue");
-    const priceOutput = document.getElementById("priceOutput");
-
-    function updatePrice() {
-      const weight = parseInt(weightSlider.value);
-      const type = productType.value;
-      const pricePerGram = pricesPerGram[type];
-      const totalPrice = weight * pricePerGram;
-      weightValue.innerText = `${weight}g`;
-      priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
+    function toggleMenu() {
+      const navMenu = document.getElementById('navMenu');
+      navMenu.classList.toggle('show');
     }
-
-    productType.addEventListener('change', updatePrice);
-    weightSlider.addEventListener('input', updatePrice);
-    updatePrice();
 
     const toggle = document.getElementById("themeToggle");
     if (localStorage.getItem("theme") === "light") {
@@ -498,11 +497,42 @@
         document.body.classList.remove("light-mode");
         localStorage.setItem("theme", "dark");
       }
-function toggleMenu() {
-  const navMenu = document.getElementById('navMenu');
-  navMenu.classList.toggle('show');
-}
     });
+
+    const pricesPerGram = {
+      gold: 110,
+      silver: 390,
+      platinum: 113,
+      diamond: 112,
+      copper: 112,
+      bronze: 111
+    };
+
+    const productType = document.getElementById("productType");
+    const weightSlider = document.getElementById("weightSlider");
+    const weightValue = document.getElementById("weightValue");
+    const priceOutput = document.getElementById("priceOutput");
+
+    if (productType && weightSlider) {
+      productType.addEventListener('change', updatePrice);
+      weightSlider.addEventListener('input', updatePrice);
+      updatePrice();
+    }
+
+    function updatePrice() {
+      const weight = parseInt(weightSlider.value);
+      const type = productType.value;
+      const pricePerGram = pricesPerGram[type];
+      const totalPrice = weight * pricePerGram;
+      weightValue.innerText = `${weight}g`;
+      priceOutput.innerText = `Estimated Price: ₹${totalPrice.toLocaleString()}/-`;
+    }
+
+    const dateElement = document.getElementById("currentDate");
+    if (dateElement) {
+      const today = new Date();
+      dateElement.innerText = `Date: ${today.toLocaleDateString()}`;
+    }
   </script>
 </body>
 </html>
